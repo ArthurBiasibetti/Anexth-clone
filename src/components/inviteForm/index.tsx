@@ -80,12 +80,14 @@ export function InviteForm({ onSubmit }: InviteFormProps) {
       onSubmit={handleSubmit}
       className="flex h-fit w-full max-w-lg flex-col items-center  rounded-md py-8 px-16 shadow-highlight"
     >
-      <h1 className="text-lg uppercase text-blue">Convidar um novo paciente</h1>
+      <h1 className="text-center text-lg uppercase text-blue">
+        Convidar um novo paciente
+      </h1>
       <h3 className="mt-1 mb-4 text-center text-base text-gray">
         Ao enviar um convite para o paciente se cadastrar, você pode montar uma
         prescrição que ele vai receber no momento que se cadastrar.
       </h3>
-      <div className="flex w-full flex-col items-center space-y-4">
+      <div className="flex w-full flex-col flex-wrap items-center space-y-4">
         <Input
           onClick={() => setNameError('')}
           value={name}
@@ -113,22 +115,26 @@ export function InviteForm({ onSubmit }: InviteFormProps) {
           error={cellphoneError}
         />
 
-        <div className="flex w-full space-x-4">
-          <Select
-            onClick={() => setGenderError('')}
-            onChange={(option) => setGender(option.value)}
-            placeholder="Gênero"
-            options={options}
-            error={genderError}
-          />
-          <Input
-            onClick={() => setDateError('')}
-            value={date}
-            onChange={(value) => setDate(value)}
-            type="date"
-            className="text-ligh-gray"
-            error={dateError}
-          />
+        <div className="flex w-full flex-wrap gap-2">
+          <div className="grow basis-1/3">
+            <Select
+              onClick={() => setGenderError('')}
+              onChange={(option) => setGender(option.value)}
+              placeholder="Gênero"
+              options={options}
+              error={genderError}
+            />
+          </div>
+          <div className="grow basis-1/3">
+            <Input
+              onClick={() => setDateError('')}
+              value={date}
+              onChange={(value) => setDate(value)}
+              type="date"
+              className=" text-ligh-gray"
+              error={dateError}
+            />
+          </div>
         </div>
 
         <input
